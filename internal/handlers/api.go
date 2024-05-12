@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
 	chimiddle "github.com/go-chi/chi/middleware"
 )
 

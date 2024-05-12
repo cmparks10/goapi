@@ -31,3 +31,13 @@ func writeError(w http.ResponseWriter, message string, code int) {
 	json.NewEncoder(w).Encode(resp)
 
 }
+
+// Wrappers for specific error responses
+var (
+	RequestErrorHandler = func(w http.ResponseWriter, err error) {
+		writeError(w, err.Error(), http.StatusBadRequest)
+	}
+	InternalErrorHandler = func(w http.ResponseWriter) {
+		writeError(w, "An Unexpected Error Occured.", http.StatusInternalServerError)
+	}
+)
